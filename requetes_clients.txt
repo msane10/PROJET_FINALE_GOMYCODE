@@ -1,0 +1,75 @@
+Je veux annuler ma commande ||| expédition
+Où est mon colis ? ||| expédition
+Ma livraison est en retard ||| expédition
+Je n’ai pas reçu ma commande ||| expédition
+Le suivi de colis ne fonctionne pas ||| expédition
+Je souhaite changer l’adresse de livraison ||| expédition
+Le livreur n’est pas passé ||| expédition
+Mon colis est arrivé endommagé ||| expédition
+Puis-je modifier la date de livraison ? ||| expédition
+Est-ce que je peux récupérer mon colis en point relais ? ||| expédition
+Quand ma commande sera-t-elle expédiée ? ||| expédition
+Ma commande est indiquée comme livrée mais je ne l’ai pas reçue ||| expédition
+Le statut de livraison n’a pas changé depuis 3 jours ||| expédition
+Le transporteur a perdu mon colis ||| expédition
+Comment suivre ma commande ? ||| expédition
+J’ai été facturé deux fois ||| facturation
+Pourquoi ai-je un prélèvement ce mois-ci ? ||| facturation
+Je souhaite contester une facture ||| facturation
+La facture est incorrecte ||| facturation
+Comment changer mon mode de paiement ? ||| facturation
+Puis-je avoir une facture détaillée ? ||| facturation
+Je ne comprends pas les frais sur ma facture ||| facturation
+Je veux modifier mes informations de facturation ||| facturation
+Le montant débité ne correspond pas à ma commande ||| facturation
+Comment ajouter une carte bancaire ? ||| facturation
+Je veux supprimer ma carte enregistrée ||| facturation
+Pourquoi ma carte est refusée ? ||| facturation
+J’ai reçu une facture alors que je n’ai rien commandé ||| facturation
+Peut-on payer en plusieurs fois ? ||| facturation
+J’ai besoin d’un justificatif de paiement ||| facturation
+Je n'arrive pas à accéder à mon compte ||| assistance
+Mon mot de passe ne fonctionne plus ||| assistance
+Je veux réinitialiser mon mot de passe ||| assistance
+Impossible de me connecter à l’application ||| assistance
+L’application plante au démarrage ||| assistance
+Je veux modifier mon adresse e-mail ||| assistance
+Je ne reçois pas l’e-mail de confirmation ||| assistance
+Je veux supprimer mon compte ||| assistance
+J’ai des problèmes avec l’interface mobile ||| assistance
+Le site est lent ||| assistance
+Je ne peux pas accéder à mes commandes passées ||| assistance
+Comment activer la double authentification ? ||| assistance
+Je veux changer la langue de l’application ||| assistance
+Le bouton de paiement ne fonctionne pas ||| assistance
+J’ai une erreur inconnue à la validation du panier ||| assistance
+Je ne comprends pas les frais supplémentaires sur ma facture ||| facturation
+Mon relevé de compte affiche un montant incorrect ||| facturation
+Pourquoi ai-je été facturé deux fois ce mois-ci ? ||| facturation
+J’aimerais recevoir une copie de ma dernière facture ||| facturation
+Ma facture n’a toujours pas été mise à jour ||| facturation
+Le montant prélevé ne correspond pas à ma commande ||| facturation
+Je souhaite modifier mes informations de facturation ||| facturation
+Est-ce que je peux obtenir un reçu détaillé ? ||| facturation
+J’ai été débité sans avoir reçu le produit ||| facturation
+Merci de vérifier les frais appliqués sur mon compte ||| facturation
+Mon colis est en retard, pouvez-vous vérifier ? ||| expédition
+Le suivi du colis ne fonctionne pas ||| expédition
+Je veux changer l’adresse de livraison ||| expédition
+Mon colis a été livré à la mauvaise adresse ||| expédition
+Avez-vous une estimation pour la livraison ? ||| expédition
+Le statut du colis reste bloqué depuis 3 jours ||| expédition
+Le livreur n’a pas trouvé mon adresse ||| expédition
+Je veux annuler l’expédition ||| expédition
+Mon colis est arrivé endommagé ||| expédition
+Est-ce que la livraison express est disponible ? ||| expédition
+Mon produit ne s’allume plus, que faire ? ||| assistance
+J’ai un problème avec l’installation du logiciel ||| assistance
+Je reçois un message d’erreur quand j’essaie de me connecter ||| assistance
+Le service ne fonctionne plus depuis la mise à jour ||| assistance
+J’ai besoin d’aide pour réinitialiser mon mot de passe ||| assistance
+Mon compte a été bloqué sans raison ||| assistance
+Je n’arrive pas à accéder à mon espace client ||| assistance
+L’application se ferme toute seule ||| assistance
+Comment contacter un technicien ? ||| assistance
+Le bouton ne répond pas quand je clique dessus ||| assistance

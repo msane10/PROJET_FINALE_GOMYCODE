@@ -1,0 +1,35 @@
+ClassBot : Rapport d'Évaluation des Modèles de Classification
+--------------------------------------------------------------
+
+📌 Objectif :
+Développer un chatbot intelligent capable de classer automatiquement les requêtes clients en trois catégories :
+- assistance
+- facturation
+- expédition
+
+📁 Étapes réalisées :
+1. Chargement des données depuis un fichier texte (`requetes_clients_augmenté.txt`)
+2. Nettoyage du texte (suppression des ponctuations, mise en minuscules)
+3. Encodage des étiquettes (LabelEncoder)
+4. Vectorisation des messages avec TF-IDF
+5. Séparation en jeu d'entraînement et de test (80/20)
+
+🔍 Modèles évalués :
+Trois modèles de classification ont été testés :
+
+1. 📘 Naive Bayes
+   - Accuracy : 0.8000
+   - Meilleure performance pour la classe "assistance" (F1-score = 0.89)
+
+2. 📙 SVM (Support Vector Machine)
+   - Accuracy : 0.8000
+   - Performances similaires à Naive Bayes
+
+3. 📗 Random Forest
+   - Accuracy : 0.8000
+   - Meilleure précision sur "facturation", mais un rappel plus faible
+
+🎯 Conclusion :
+Tous les modèles ont obtenu une **accuracy de 80%**, mais **Naive Bayes** a été sélectionné comme modèle de base pour la suite du projet grâce à sa robustesse et sa simplicité pour le traitement du texte.
+
+Prochaine étape : Intégration du modèle dans un chatbot interactif.
