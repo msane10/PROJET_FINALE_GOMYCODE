@@ -18,7 +18,7 @@ from nltk.stem.snowball import FrenchStemmer
 from sklearn.model_selection import GridSearchCV
 
 nltk.download('stopwords')
-stop_words = set(stopwords.words('french'))
+stop_words = list(stopwords.words('french'))
 stemmer = FrenchStemmer()
 
 # Nettoyage de texte avancé
@@ -46,7 +46,7 @@ vectorizer = TfidfVectorizer(
     ngram_range=(1, 2),
     max_df=0.95,
     min_df=2,
-    stop_words = list(stopwords.words('french'))
+    stop_words=stop_words
 )
 X = vectorizer.fit_transform(df["message_clean"])
 y = df["label"]
@@ -75,6 +75,9 @@ def evaluate_model(model, name):
     return acc
 
 # === PHASE 2 : Comparaison Naive Bayes vs Decision Tree ===
+# Objectif : évaluer les performances initiales de deux modèles simples sur des requêtes client
+# Modèles comparés : Naive Bayes (texte) et Arbre de Décision (logique explicable)
+
 phase2_models = {
     "Naive Bayes": MultinomialNB(),
     "Decision Tree": DecisionTreeClassifier(random_state=42)
@@ -88,16 +91,40 @@ for name, model in phase2_models.items():
 best_model_phase2 = max(phase2_results, key=phase2_results.get)
 print(f"\n🏆 Phase 2 - Meilleur modèle : {best_model_phase2} avec une accuracy de {phase2_results[best_model_phase2]:.4f}")
 
-# === PHASE 2 BIS : Optimisation de l'Arbre de Décision ===
-param_grid = {
+# === PHASE 3 : Réglage des Hyperparamètres ===
+# Objectif : améliorer les performances des modèles Naive Bayes et Arbre de Décision
+# en testant différents paramètres à l’aide de GridSearchCV (validation croisée).
+
+# 🔍 Réglage de l'Arbre de Décision :
+# Test de plusieurs valeurs pour max_depth, min_samples_split et criterion.
+# Objectif : limiter le surapprentissage et améliorer la généralisation.
+param_grid_tree = {
     'max_depth': [5, 10, 20, None],
     'min_samples_split': [2, 5, 10],
     'criterion': ['gini', 'entropy']
 }
 
-grid = GridSearchCV(DecisionTreeClassifier(random_state=42), param_grid, cv=5, scoring='accuracy')
-grid.fit(X_train, y_train)
+grid_tree = GridSearchCV(DecisionTreeClassifier(random_state=42), param_grid_tree, cv=5, scoring='accuracy')
+grid_tree.fit(X_train, y_train)
 
-print("\n📈 Meilleurs paramètres trouvés :", grid.best_params_)
-best_tree_model = grid.best_estimator_
+print("\n📈 Meilleurs paramètres trouvés pour l'arbre de décision:", grid_tree.best_params_)
+best_tree_model = grid_tree.best_estimator_
 evaluate_model(best_tree_model, "Decision Tree Optimisé")
+
+# 🔍 Réglage de Naive Bayes :
+# Test de différentes valeurs de alpha (lissage de Laplace) pour mieux gérer les zéros.
+param_grid_nb = {
+    'alpha': [0.1, 0.5, 1.0, 2.0, 5.0]
+}
+
+grid_nb = GridSearchCV(MultinomialNB(), param_grid_nb, cv=5, scoring='accuracy')
+grid_nb.fit(X_train, y_train)
+
+print("\n📈 Meilleur alpha pour Naive Bayes:", grid_nb.best_params_)
+best_nb_model = grid_nb.best_estimator_
+evaluate_model(best_nb_model, "Naive Bayes Optimisé")
+
+# 🔚 Résultat attendu :
+# - Une meilleure accuracy pour les deux modèles
+# - Des paramètres optimaux identifiés automatiquement
+# - Une comparaison claire entre modèles de base et modèles optimisés

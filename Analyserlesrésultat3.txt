@@ -1,0 +1,52 @@
+📊 1. Modèle : Decision Tree
+🔧 Modèle optimisé :
+Paramètres : criterion='gini', max_depth=10, min_samples_split=2
+
+Accuracy : 66,67%
+
+Forces :
+
+Très bon rappel sur expédition (1.00)
+
+Bonne précision globale sur facturation (1.00)
+
+Faiblesses :
+
+Mauvais rappel pour facturation (0.20) → il classe mal cette catégorie
+
+Globalement déséquilibré (fortes variations entre classes)
+
+📉 Comparé au modèle initial (Phase 2) :
+Performance stable ou légèrement améliorée en précision pour certaines classes
+
+Mais recall très faible sur facturation : indique un surapprentissage ou mauvaise séparation de cette classe
+
+📘 2. Modèle : Naive Bayes
+🔧 Modèle optimisé :
+Paramètre : alpha = 0.1
+
+Accuracy : 80,00%
+
+Équilibre général :
+
+Bonne précision sur toutes les classes
+
+Scores F1 proches entre classes (entre 0.73 et 0.89)
+
+Macro/moyenne pondérée proches → bon équilibre entre les catégories
+
+📈 Comparé au modèle initial (Phase 2) :
+Accuracy identique ou légèrement améliorée
+
+Meilleure homogénéité entre les classes
+
+Plus robuste face aux variations dans le texte
+
+🧠 Analyse comparative finale
+Modèle	Accuracy (Phase 2)	Accuracy (Optimisé)	Analyse globale
+🌳 Decision Tree	~78%	66,67%	Perte de performance, surapprentissage possible
+📘 Naive Bayes	~80%	80,00%	Stable et équilibré après réglage
+✅ Conclusion
+Naive Bayes optimisé reste le meilleur choix : fiable, simple, et performant.
+
+Le Decision Tree bien qu’optimisé, n’apporte pas de gains réels, et montre une faible capacité à généraliser correctement sur certaines classes (notamment facturation).

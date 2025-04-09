@@ -1,0 +1,60 @@
+⚙️ ClassBot : Rapport de Réglage des Hyperparamètres (Phase 3)
+📌 Objectif :
+Améliorer les performances des classificateurs Naive Bayes et Arbre de Décision en ajustant finement leurs hyperparamètres à l’aide de validation croisée (GridSearchCV).
+
+📁 Étapes réalisées :
+
+Réutilisation des données prétraitées issues des phases précédentes (textes nettoyés, vectorisés en TF-IDF)
+
+Application de GridSearchCV pour tester plusieurs combinaisons d’hyperparamètres :
+
+🔧 Arbre de Décision : max_depth, min_samples_split, criterion
+
+🔧 Naive Bayes : alpha (lissage de Laplace)
+
+Réentraînement des modèles avec les meilleurs paramètres trouvés
+
+Évaluation des modèles optimisés : accuracy, classification report, matrices de confusion
+
+🔍 Résultats du réglage :
+
+🌳 Decision Tree Optimisé
+Paramètres : max_depth=10, min_samples_split=2, criterion='gini'
+
+Accuracy : 66,67%
+
+Forces :
+
+Très bon rappel sur la classe expédition
+
+Faiblesses :
+
+Très faible rappel pour la classe facturation (0.20)
+
+Manque d’équilibre entre les classes
+
+📘 Naive Bayes Optimisé
+Paramètre : alpha=0.1
+
+Accuracy : 80,00%
+
+Avantages :
+
+Précision et rappel équilibrés sur toutes les classes
+
+F1-scores homogènes (0.73 à 0.89)
+
+Meilleur score global, cohérent avec le modèle de base
+
+📈 Comparaison avec Phase 2 :
+
+Modèle	Accuracy (Initiale)	Accuracy (Optimisé)	Remarques
+🌳 Decision Tree	~78%	66,67%	Performances en baisse
+📘 Naive Bayes	~80%	80,00%	Modèle stable et performant
+🎯 Conclusion :
+
+Le réglage des hyperparamètres est une étape essentielle pour affiner les performances.
+
+Naive Bayes reste le modèle le plus fiable et équilibré pour la classification de requêtes clients.
+
+L’arbre de décision, malgré le tuning, montre des faiblesses de généralisation.
