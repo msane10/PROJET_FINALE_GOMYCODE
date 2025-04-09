@@ -1,0 +1,65 @@
+🧪 ClassBot : Rapport d'Évaluation des Classificateurs Bayésiens et Arbres de Décision
+📌 Objectif :
+Approfondir l’évaluation de modèles pour classer automatiquement les requêtes clients selon trois catégories :
+
+assistance
+
+facturation
+
+expédition
+
+Cette phase met l'accent sur deux familles de classificateurs :
+
+📘 Naive Bayes
+
+🌳 Decision Tree
+
+📁 Étapes réalisées :
+
+Chargement des données clients depuis requetes_clients.txt
+
+Nettoyage textuel avancé : suppression de ponctuation, mise en minuscules, suppression des mots vides (stop words) et stemming (racines des mots)
+
+Vectorisation des messages avec TF-IDF enrichi :
+
+Unigrammes + bigrammes
+
+Suppression des termes trop rares ou trop fréquents (min_df, max_df)
+
+Séparation du jeu de données : 80% entraînement / 20% test
+
+Entraînement de deux modèles : MultinomialNB et DecisionTreeClassifier
+
+Optimisation des hyperparamètres de l’arbre de décision via GridSearchCV
+
+🔍 Modèles évalués :
+
+📘 Naive Bayes
+
+Accuracy : ~0.80
+
+Bonnes performances globales avec faible complexité
+
+Rapide à entraîner et prédire
+
+🌳 Decision Tree
+
+Accuracy : ~0.78 (avant optimisation)
+
+Modèle plus explicable mais sensible au surapprentissage
+
+Performance améliorée avec GridSearchCV :
+
+Meilleurs paramètres : max_depth=10, min_samples_split=5, criterion='entropy'
+
+Accuracy optimisée : ~0.82
+
+🎯 Conclusion :
+Les deux modèles sont adaptés pour une classification de texte simple, mais :
+
+Naive Bayes reste très efficace avec peu de réglages
+
+Decision Tree optimisé devient plus compétitif avec un bon réglage de profondeur et de séparation
+
+Le modèle Naive Bayes peut être conservé comme base légère et rapide, tandis que l’arbre optimisé peut être utilisé lorsque l’explicabilité ou la personnalisation du comportement est prioritaire.
+
