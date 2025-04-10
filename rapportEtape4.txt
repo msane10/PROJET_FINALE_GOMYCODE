@@ -1,0 +1,83 @@
+🧪 ClassBot : Rapport de la Phase 4 - Interface Utilisateur et Intégration Interactive
+📌 Objectif
+Présenter concrètement au public le fonctionnement d’un chatbot intelligent basé sur le traitement du langage naturel (NLP) avec NLTK, entraîné pour classifier automatiquement les requêtes clients selon trois catégories :
+
+📦 Expédition
+
+💳 Facturation
+
+🛠️ Assistance technique
+
+La phase 4 vise à transformer un modèle de classification performant en application interactive complète et réaliste.
+
+🧰 Éléments implémentés
+🔹 1. Sauvegarde du modèle final (classbot.py)
+Après entraînement et réglage du modèle Naive Bayes optimisé, les objets suivants ont été sauvegardés pour l’intégration dans l’application :
+
+python
+Copier
+Modifier
+joblib.dump(best_nb_model, "model.pkl")
+joblib.dump(vectorizer, "vectorizer.pkl")
+joblib.dump(label_encoder, "label_encoder.pkl")
+Cela permet un chargement rapide dans une application sans devoir réentraîner le modèle.
+
+🔹 2. Création d’une interface interactive avec Streamlit (app.py)
+Interface web avec Streamlit.
+
+Boîte de saisie utilisateur.
+
+Bouton "Analyser la requête".
+
+Résultat immédiat sous forme de message structuré selon la catégorie détectée.
+
+🔹 3. Gestion des cas ambigus ou hors sujet
+✅ Intégration d’un filtrage intelligent basé sur les mots-clés
+Détection contextuelle lorsque le score de confiance du modèle est faible (< 0.5) :
+
+python
+Copier
+Modifier
+if confidence < 0.5:
+    if "colis" in message: category = "expédition"
+✅ Gestion des requêtes hors sujet
+Ajout d'une catégorie implicite "hors_sujet" pour détecter des requêtes non pertinentes (recettes, météo, santé, tourisme...) via une liste de mots-clés.
+
+🔹 4. Affichage dynamique et explicite par catégorie
+Catégorie détectée	Réponse
+expédition	📦 Bloc informatif sur les problèmes de livraison
+facturation	💳 Bloc informatif sur la facturation, paiements
+assistance	🛠️ Bloc informatif sur les problèmes techniques
+hors_sujet	❌ Message d'erreur expliquant le périmètre du chatbot
+✅ Exemples concrets
+Entrée : "Je veux modifier ma facture"
+
+→ Catégorie : facturation
+
+✅ Réponse sur les modifications de factures, remboursements, moyens de paiement.
+
+Entrée : "Quel temps fait-il à Paris ?"
+
+→ Catégorie : hors_sujet
+
+❌ Réponse : "Votre demande semble hors du périmètre du service client."
+
+Entrée : "Code promo non appliqué"
+
+Confiance faible du modèle, mais mot-clé détecté → Catégorie : facturation (boostée à 0.7)
+
+🎯 Résultat de la Phase 4
+Objectif	Statut
+Déploiement d’une interface	✅
+Réutilisation du modèle optimisé	✅
+Réponse en langage naturel	✅
+Gestion des erreurs & cas limites	✅
+Détection de messages hors-sujet	✅
+📈 Conclusion
+Cette phase démontre la maturité fonctionnelle du projet ClassBot :
+
+L’IA ne se contente plus de classifier silencieusement : elle interagit, contextualise, corrige et guide.
+
+L’interface Streamlit permet une expérience utilisateur fluide, idéale pour une démo publique ou une mise en production simple.
+
+La robustesse du système face à des requêtes floues ou hors périmètre est un atout majeur dans des environnements réels.

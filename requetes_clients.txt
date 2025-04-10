@@ -1,75 +1,80 @@
-Je veux annuler ma commande ||| expédition
-Où est mon colis ? ||| expédition
-Ma livraison est en retard ||| expédition
-Je n’ai pas reçu ma commande ||| expédition
-Le suivi de colis ne fonctionne pas ||| expédition
-Je souhaite changer l’adresse de livraison ||| expédition
-Le livreur n’est pas passé ||| expédition
-Mon colis est arrivé endommagé ||| expédition
-Puis-je modifier la date de livraison ? ||| expédition
-Est-ce que je peux récupérer mon colis en point relais ? ||| expédition
-Quand ma commande sera-t-elle expédiée ? ||| expédition
-Ma commande est indiquée comme livrée mais je ne l’ai pas reçue ||| expédition
-Le statut de livraison n’a pas changé depuis 3 jours ||| expédition
-Le transporteur a perdu mon colis ||| expédition
-Comment suivre ma commande ? ||| expédition
-J’ai été facturé deux fois ||| facturation
-Pourquoi ai-je un prélèvement ce mois-ci ? ||| facturation
-Je souhaite contester une facture ||| facturation
-La facture est incorrecte ||| facturation
-Comment changer mon mode de paiement ? ||| facturation
-Puis-je avoir une facture détaillée ? ||| facturation
-Je ne comprends pas les frais sur ma facture ||| facturation
-Je veux modifier mes informations de facturation ||| facturation
-Le montant débité ne correspond pas à ma commande ||| facturation
-Comment ajouter une carte bancaire ? ||| facturation
-Je veux supprimer ma carte enregistrée ||| facturation
-Pourquoi ma carte est refusée ? ||| facturation
-J’ai reçu une facture alors que je n’ai rien commandé ||| facturation
-Peut-on payer en plusieurs fois ? ||| facturation
-J’ai besoin d’un justificatif de paiement ||| facturation
-Je n'arrive pas à accéder à mon compte ||| assistance
-Mon mot de passe ne fonctionne plus ||| assistance
-Je veux réinitialiser mon mot de passe ||| assistance
-Impossible de me connecter à l’application ||| assistance
-L’application plante au démarrage ||| assistance
-Je veux modifier mon adresse e-mail ||| assistance
-Je ne reçois pas l’e-mail de confirmation ||| assistance
-Je veux supprimer mon compte ||| assistance
-J’ai des problèmes avec l’interface mobile ||| assistance
-Le site est lent ||| assistance
-Je ne peux pas accéder à mes commandes passées ||| assistance
-Comment activer la double authentification ? ||| assistance
-Je veux changer la langue de l’application ||| assistance
-Le bouton de paiement ne fonctionne pas ||| assistance
-J’ai une erreur inconnue à la validation du panier ||| assistance
-Je ne comprends pas les frais supplémentaires sur ma facture ||| facturation
-Mon relevé de compte affiche un montant incorrect ||| facturation
-Pourquoi ai-je été facturé deux fois ce mois-ci ? ||| facturation
-J’aimerais recevoir une copie de ma dernière facture ||| facturation
-Ma facture n’a toujours pas été mise à jour ||| facturation
-Le montant prélevé ne correspond pas à ma commande ||| facturation
-Je souhaite modifier mes informations de facturation ||| facturation
-Est-ce que je peux obtenir un reçu détaillé ? ||| facturation
-J’ai été débité sans avoir reçu le produit ||| facturation
-Merci de vérifier les frais appliqués sur mon compte ||| facturation
-Mon colis est en retard, pouvez-vous vérifier ? ||| expédition
-Le suivi du colis ne fonctionne pas ||| expédition
-Je veux changer l’adresse de livraison ||| expédition
-Mon colis a été livré à la mauvaise adresse ||| expédition
-Avez-vous une estimation pour la livraison ? ||| expédition
-Le statut du colis reste bloqué depuis 3 jours ||| expédition
-Le livreur n’a pas trouvé mon adresse ||| expédition
-Je veux annuler l’expédition ||| expédition
-Mon colis est arrivé endommagé ||| expédition
-Est-ce que la livraison express est disponible ? ||| expédition
-Mon produit ne s’allume plus, que faire ? ||| assistance
-J’ai un problème avec l’installation du logiciel ||| assistance
-Je reçois un message d’erreur quand j’essaie de me connecter ||| assistance
-Le service ne fonctionne plus depuis la mise à jour ||| assistance
-J’ai besoin d’aide pour réinitialiser mon mot de passe ||| assistance
-Mon compte a été bloqué sans raison ||| assistance
-Je n’arrive pas à accéder à mon espace client ||| assistance
-L’application se ferme toute seule ||| assistance
-Comment contacter un technicien ? ||| assistance
-Le bouton ne répond pas quand je clique dessus ||| assistance
+Quand vais-je recevoir mon colis ? ||| expédition
+Est-ce que je peux choisir une livraison express ? ||| expédition
+Mon colis est bloqué au centre de tri ||| expédition
+J'ai reçu un colis que je n'ai pas commandé ||| expédition
+Comment changer l'horaire de livraison ? ||| expédition
+Le livreur m'a dit qu'il repassera demain ||| expédition
+Puis-je faire livrer à une autre adresse ? ||| expédition
+Mon suivi indique livré mais je n'ai rien ||| expédition
+Le colis a été retourné à l'expéditeur ||| expédition
+Je n'ai reçu qu'une partie de ma commande ||| expédition
+Où est mon colis Amazon ? ||| expédition
+Le point relais est fermé, que faire ? ||| expédition
+Le livreur a laissé le colis chez le voisin sans prévenir ||| expédition
+Je veux ajouter des instructions de livraison ||| expédition
+Pourquoi la livraison prend autant de temps ? ||| expédition
+Peut-on reprogrammer la livraison ? ||| expédition
+Colis perdu, comment faire un remboursement ? ||| expédition
+Mon colis est en douane ||| expédition
+Est-ce possible de faire une livraison le week-end ? ||| expédition
+Je veux refuser le colis à la livraison ||| expédition
+Je ne comprends pas le montant total ||| facturation
+Pourquoi ai-je été débité deux fois ? ||| facturation
+Je veux une facture à mon nom ||| facturation
+J’ai besoin d’une facture pour ma comptabilité ||| facturation
+Les frais de port sont trop élevés ||| facturation
+Je n’ai pas reçu ma facture par email ||| facturation
+Comment modifier ma carte de paiement ? ||| facturation
+Est-ce que je peux payer par virement bancaire ? ||| facturation
+Puis-je modifier la devise de facturation ? ||| facturation
+Pourquoi ai-je un prélèvement automatique ? ||| facturation
+Je veux un reçu PDF ||| facturation
+Le montant est différent entre le panier et la facture ||| facturation
+Comment obtenir une facture avec TVA ? ||| facturation
+Je veux changer l'adresse de facturation ||| facturation
+Pourquoi mon paiement a échoué ? ||| facturation
+Le site affiche un prix différent du montant facturé ||| facturation
+Je souhaite annuler la facture ||| facturation
+On m’a facturé un produit que je n’ai pas reçu ||| facturation
+Je souhaite être remboursé ||| facturation
+Ma réduction n’a pas été appliquée ||| facturation
+Je n'arrive pas à me connecter à mon compte ||| assistance
+L'application se bloque au démarrage ||| assistance
+Je veux désactiver les notifications ||| assistance
+Mon historique d'achat a disparu ||| assistance
+Je ne peux pas changer mon mot de passe ||| assistance
+Le bouton d’aide ne fonctionne pas ||| assistance
+Je n'arrive pas à télécharger la facture ||| assistance
+L'application affiche un message d'erreur ||| assistance
+Impossible d'accéder au service client ||| assistance
+Je ne reçois pas l'email de confirmation ||| assistance
+Comment contacter un conseiller ? ||| assistance
+L’application est en anglais, je veux en français ||| assistance
+Mon compte a été désactivé sans raison ||| assistance
+Comment supprimer mes données personnelles ? ||| assistance
+Je ne vois pas mes commandes passées ||| assistance
+Le code de vérification ne fonctionne pas ||| assistance
+Je veux signaler un bug ||| assistance
+Comment activer les notifications push ? ||| assistance
+J’ai un souci technique avec l’app ||| assistance
+Le système m’empêche de passer une commande ||| assistance
+Quel est le sens de la vie ? ||| autre
+Raconte-moi une blague ||| autre
+Quel temps fait-il à Paris ? ||| autre
+Peux-tu m’aider à faire mes devoirs ? ||| autre
+Tu connais la recette du tiramisu ? ||| autre
+Est-ce que tu aimes les chats ? ||| autre
+Quel est le meilleur film de 2024 ? ||| autre
+Je veux discuter avec quelqu’un ||| autre
+Comment aller sur la lune ? ||| autre
+Tu joues à des jeux vidéo ? ||| autre
+Qui est le président actuel ? ||| autre
+Parle-moi de la révolution française ||| autre
+Peux-tu me dire l'heure ? ||| autre
+Lis-moi un poème ||| autre
+J’aimerais voyager à Bali ||| autre
+Quel est ton plat préféré ? ||| autre
+Fais-moi une prédiction ||| autre
+Est-ce que tu rêves ? ||| autre
+Tu es humain ? ||| autre
+Je suis fatigué aujourd’hui ||| autre

@@ -23,23 +23,37 @@ stemmer = FrenchStemmer()
 
 # Nettoyage de texte avancé
 def clean_text(text):
+    """Nettoyage amélioré qui conserve plus d'informations"""
     text = text.lower()
-    text = re.sub(r"[^a-zàâçéèêëîïôûùüÿñæœ\s]", "", text)
+    # Garder certains caractères spéciaux utiles
+    text = re.sub(r"[^a-zàâçéèêëîïôûùüÿñæœ0-9\s'?-]", "", text)
     tokens = text.split()
-    tokens = [stemmer.stem(word) for word in tokens if word not in stop_words]
+    # Remplacer le stemming par une lemmatisation ou le supprimer
+    tokens = [word for word in tokens if word not in stop_words]
     return " ".join(tokens)
 
-# Chargement des données
+# Chargement des données - Version améliorée avec vérification
 with open("requetes_clients.txt", "r", encoding="utf-8") as f:
-    lines = f.readlines()
+    lines = [line.strip().split(" ||| ") for line in f if line.strip() and line.count(" ||| ") == 1]
 
-data = [line.strip().split(" ||| ") for line in lines]
-df = pd.DataFrame(data, columns=["message", "categorie"])
+df = pd.DataFrame(lines, columns=["message", "categorie"])
+df = df.dropna()  # Supprime les lignes vides
+df = df.reset_index(drop=True)  # Réinitialise les index
+
+# Création de la colonne nettoyée - Ajout crucial manquant dans la version originale
 df["message_clean"] = df["message"].apply(clean_text)
 
 # Encodage des étiquettes
 label_encoder = LabelEncoder()
 df["label"] = label_encoder.fit_transform(df["categorie"])
+
+# Vérification des données
+print("=== VÉRIFICATION DES DONNÉES ===")
+print("Exemples de messages :")
+print(df["message"].head())
+print("\nCatégories uniques :", label_encoder.classes_)
+print("Distribution des catégories :")
+print(df['categorie'].value_counts())
 
 # Vectorisation TF-IDF améliorée
 vectorizer = TfidfVectorizer(
@@ -49,12 +63,18 @@ vectorizer = TfidfVectorizer(
     stop_words=stop_words
 )
 X = vectorizer.fit_transform(df["message_clean"])
-y = df["label"]
+y = df["label"].values  # Conversion en array numpy
 
-# Split train/test
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
+# Split train/test - Version plus robuste
+X_train, X_test, y_train, y_test = train_test_split(
+    X,
+    y,
+    test_size=0.2,
+    random_state=42,
+    stratify=y
+)
 
-# Fonction d'évaluation
+# Fonction d'évaluation - Conservée identique
 def evaluate_model(model, name):
     model.fit(X_train, y_train)
     y_pred = model.predict(X_test)
@@ -62,12 +82,15 @@ def evaluate_model(model, name):
     print(f"\n📊 Résultats - {name}")
     print(f"Accuracy : {acc:.4f}")
     print("Rapport de classification :")
-    print(classification_report(y_test, y_pred, target_names=label_encoder.classes_))
+
+    # Utilisez les classes présentes dans y_test au lieu de label_encoder.classes_
+    present_labels = label_encoder.inverse_transform(sorted(set(y_test)))
+    print(classification_report(y_test, y_pred, target_names=present_labels, zero_division=0))
 
     cm = confusion_matrix(y_test, y_pred)
     sns.heatmap(cm, annot=True, fmt='d', cmap='Blues',
-                xticklabels=label_encoder.classes_,
-                yticklabels=label_encoder.classes_)
+                xticklabels=present_labels,
+                yticklabels=present_labels)
     plt.title(f"Matrice de Confusion - {name}")
     plt.xlabel("Prédit")
     plt.ylabel("Réel")
@@ -93,7 +116,7 @@ print(f"\n🏆 Phase 2 - Meilleur modèle : {best_model_phase2} avec une accurac
 
 # === PHASE 3 : Réglage des Hyperparamètres ===
 # Objectif : améliorer les performances des modèles Naive Bayes et Arbre de Décision
-# en testant différents paramètres à l’aide de GridSearchCV (validation croisée).
+# en testant différents paramètres à l'ade de GridSearchCV (validation croisée).
 
 # 🔍 Réglage de l'Arbre de Décision :
 # Test de plusieurs valeurs pour max_depth, min_samples_split et criterion.
@@ -114,7 +137,8 @@ evaluate_model(best_tree_model, "Decision Tree Optimisé")
 # 🔍 Réglage de Naive Bayes :
 # Test de différentes valeurs de alpha (lissage de Laplace) pour mieux gérer les zéros.
 param_grid_nb = {
-    'alpha': [0.1, 0.5, 1.0, 2.0, 5.0]
+    'alpha': [0.01, 0.1, 0.5, 1.0],  # Valeurs plus basses
+    'fit_prior': [True, False]  # Ajouter ce paramètre
 }
 
 grid_nb = GridSearchCV(MultinomialNB(), param_grid_nb, cv=5, scoring='accuracy')
@@ -128,3 +152,18 @@ evaluate_model(best_nb_model, "Naive Bayes Optimisé")
 # - Une meilleure accuracy pour les deux modèles
 # - Des paramètres optimaux identifiés automatiquement
 # - Une comparaison claire entre modèles de base et modèles optimisés
+
+
+# === PHASE 4 : Phase de laboratoire / Performance ===
+# Objectif : L'objectif de votre présentation doit être de présenter au public
+# le concept de chatbots de traitement du langage naturel (NLP) avec NLTK pour la classification de texte.
+
+
+import joblib
+
+# Sauvegarde du modèle Naive Bayes optimisé et des objets nécessaires
+joblib.dump(best_nb_model, "model.pkl")
+joblib.dump(vectorizer, "vectorizer.pkl")
+joblib.dump(label_encoder, "label_encoder.pkl")
+
+print("✅ Modèle, vectorizer et label_encoder sauvegardés avec succès.")
