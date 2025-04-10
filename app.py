@@ -10,6 +10,8 @@ import re
 import nltk
 from nltk.corpus import stopwords
 from nltk.stem.snowball import FrenchStemmer
+import os
+import requests
 
 # ⛳ DOIT ÊTRE TOUT EN HAUT juste après les imports
 st.set_page_config(page_title="ClassBot", page_icon="🤖")
@@ -25,6 +27,29 @@ def clean_text(text):
     tokens = text.split()
     tokens = [word for word in tokens if word not in stop_words and len(word) > 2]
     return " ".join(tokens)
+
+# Téléchargement des modèles depuis GitHub si nécessaire
+def download_model_from_github():
+    # Liste des fichiers à télécharger
+    files = [
+        ("model.pkl", "https://github.com/msane10/PROJET_FINALE_GOMYCODE/raw/main/model.pkl"),
+        ("vectorizer.pkl", "https://github.com/msane10/PROJET_FINALE_GOMYCODE/raw/main/vectorizer.pkl"),
+        ("label_encoder.pkl", "https://github.com/msane10/PROJET_FINALE_GOMYCODE/raw/main/label_encoder.pkl")
+    ]
+    
+    # Télécharger chaque fichier
+    for filename, url in files:
+        if not os.path.exists(filename):  # Vérifie si le fichier existe déjà
+            print(f"Téléchargement de {filename} depuis GitHub...")
+            response = requests.get(url)
+            with open(filename, "wb") as file:
+                file.write(response.content)
+            print(f"{filename} téléchargé avec succès.")
+        else:
+            print(f"{filename} existe déjà.")
+
+# Appel de la fonction pour télécharger les modèles
+download_model_from_github()
 
 @st.cache_resource
 def load_assets():
